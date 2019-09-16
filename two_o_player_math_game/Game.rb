@@ -1,15 +1,15 @@
 module Game
-  
+
   def operations(num1, num2)
     ops = [
       [
-        "plus", num1 + num2
+        "+", num1 + num2
       ],[
-        "minus", num1 - num2
+        "-", num1 - num2
       ],[
-        "divide", num1 / num2
+        "/", num1 / num2
       ],[
-        "multiply", num1 * num2
+        "*", num1 * num2
       ],
     ] 
 
@@ -23,14 +23,14 @@ module Game
   def questionGenerator(player)
     num1 = rand(1..30)
     num2 = rand(1..30)
-    question = operations()
-    puts "#{player.name}: #{num1} #{question[0]} #{num2} equal?"
-    playerAnswer = gets.chomp()
+    question = operations(num1, num2)
+    puts "#{player.name}: #{num1} #{question[0]} #{num2} ="
+    playerAnswer = gets.chomp().to_i
     if compareAnswer(playerAnswer, question[1]) then
       puts "YES! That's correct"
       player.addScore()
     else
-      puts "Seriously? No..."
+      puts "Seriously? No...it's #{question[1]}"
     end
   end
 
