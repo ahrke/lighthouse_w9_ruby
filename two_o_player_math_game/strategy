@@ -1,0 +1,35 @@
+Requires => {
+  players
+   - name
+   - score
+  game state
+   - turn management
+   - round tracker
+  question generation,
+
+}
+
+classes => {
+  Person
+}
+
+modules => {
+  Game
+   - CalculateWinner
+   - QuestionGenerator
+}
+
+life cycle => {
+  requests player names
+   - use Player class to create new players with name, initialize points to 0
+  start game 
+   - ask question to first player
+   - update score
+   - switch turn
+   - ask second player question
+   - update score
+   - round 1 done
+   - repeat for 3 rounds
+   - count and compare scores
+   - congratulate winner
+}
